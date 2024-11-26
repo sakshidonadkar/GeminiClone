@@ -3,17 +3,17 @@ import { IoMenu } from "react-icons/io5"
 import { FaMessage, FaPlus, FaQuestion } from "react-icons/fa6"
 import { MdHistory } from "react-icons/md"
 import { IoSettings } from "react-icons/io5"
-//import { Context } from "../context/Context"
+import { Context } from "../context/Context"
 
 const Sidebar = () => {
   const [extended, setExtended] = useState(false)
-//   const { onSent, prevPrompt, setRecentPrompt, newChat } = useContext(Context)
+  const { onSent, prevPrompt, setRecentPrompt, newChat } = useContext(Context)
 
-//   const loadPrompt = async (prompt) => {
-//     setRecentPrompt(prompt)
+  const loadPrompt = async (prompt) => {
+    setRecentPrompt(prompt)
 
-//     await onSent(prompt)
-//   }
+    await onSent(prompt)
+  }
 
   return (
     <div className="min-h-screen inline-flex flex-col justify-between bg-[#e4e7eb] py-[25px] px-[15px]">
@@ -36,7 +36,7 @@ const Sidebar = () => {
           <div className="flex flex-col animate-fadeIn duration-1000">
             <p className="mt-7 mb-5">Recent</p>
 
-            {/* {prevPrompt?.map((item, index) => {
+            {prevPrompt?.map((item, index) => {
               return (
                 <div
                   onClick={() => loadPrompt(item)}
@@ -46,7 +46,7 @@ const Sidebar = () => {
                   <p>{item.slice(0, 18)}...</p>
                 </div>
               )
-            })} */}
+            })}
           </div>
         )}
       </div>

@@ -9,22 +9,22 @@ import {
 import { FaMessage } from "react-icons/fa6"
 import { MdAddPhotoAlternate } from "react-icons/md"
 import { IoMdSend } from "react-icons/io"
-//import { Context } from "../context/Context"
+import { Context } from "../context/Context"
 import geminiLogo from "../assets/geminiLogo.png"
 
 const MainContent = () => {
-  // const {
-  //   input,
-  //   setInput,
-  //   recentPrompt,
-  //   setRecentPrompt,
-  //   prevPrompt,
-  //   setPrevPrompt,
-  //   showResult,
-  //   loading,
-  //   resultData,
-  //   onSent,
-  // } = useContext(Context)
+  const {
+    input,
+    setInput,
+    recentPrompt,
+    setRecentPrompt,
+    prevPrompt,
+    setPrevPrompt,
+    showResult,
+    loading,
+    resultData,
+    onSent,
+  } = useContext(Context)
 
   return (
     <div className="flex-1 min-h-screen pb-[15vh] relative">
@@ -34,7 +34,7 @@ const MainContent = () => {
       </div>
 
       <div className="max-w-[900px] mx-auto">
-        {/* {!showResult ? ( */}
+        {!showResult ? (
           <>
             <div className="my-12 text-[56px] text-slate-500 font-semibold p-5">
               <p>
@@ -80,17 +80,17 @@ const MainContent = () => {
               </div>
             </div>
           </>
-        {/* ) : ( */}
+        ) : (
           <div className="py-0 px-[5%] max-h-[70vh] overflow-y-scroll scrollbar-hidden">
             <div className="my-10 mx-0 flex items-center gap-5">
               <FaUserCircle className="text-3xl" />
 
-           {/* <p className="text-lg font-[400] leading-[1.8]">{recentPrompt}</p> */}
+              <p className="text-lg font-[400] leading-[1.8]">{recentPrompt}</p>
             </div>
 
             <div className="flex items-start gap-5">
               <img src={geminiLogo} alt="" className="w-8 rounded-[50%]" />
-{/* 
+
               {loading ? (
                 <div className="w-full flex flex-col gap-2">
                   <hr className="rounded-md border-none bg-gray-200 bg-gradient-to-r from-[#81cafe] via-[#ffffff] to-[#81cafe] p-4 animate-scroll-bg" />
@@ -104,10 +104,10 @@ const MainContent = () => {
                   dangerouslySetInnerHTML={{ __html: resultData }}
                   className="text-lg font-[400] leading-[1.8]"
                 ></p>
-              )} */}
+              )}
             </div>
           </div>
-        {/* )} */}
+        )}
 
         <div className="absolute bottom-0 w-full max-w-[900px] px-5 mx-auto mt-5">
           <div className="flex items-center justify-between gap-20 bg-gray-200 py-2 px-5 rounded-full">
@@ -115,19 +115,19 @@ const MainContent = () => {
               type="text"
               placeholder="Enter a prompt here..."
               className="flex-1 bg-transparent border-none outline-none p-2 text-lg"
-              // value={input}
-              // onChange={(e) => setInput(e.target.value)}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
             />
 
             <div className="flex gap-4 items-center">
               <MdAddPhotoAlternate className="text-2xl cursor-pointer" />
               <FaMicrophone className="text-2xl cursor-pointer" />
-              {/* {input && ( */}
+              {input && (
                 <IoMdSend
-                  // onClick={() => onSent()}
+                  onClick={() => onSent()}
                   className="text-2xl cursor-pointer"
                 />
-              {/* )} */}
+              )}
             </div>
           </div>
 
